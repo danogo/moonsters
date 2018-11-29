@@ -1,0 +1,24 @@
+.spinner {
+  position: absolute;
+  border: solid 3px $purple-light;
+  border-bottom-color: $purple;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  transform-origin: center;
+  opacity: inherit;
+  animation: 2s linear infinite spinner;
+}
+
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}

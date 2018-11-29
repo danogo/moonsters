@@ -1,0 +1,41 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  font-size: $m-size;
+  background: $white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.loader {
+  margin: 0 auto;
+  font-size: 30px;
+  letter-spacing: 2px;
+  color: blue;
+}
+
+.fail-fetch {
+  margin: 0 auto;
+  color: $red-dark;
+  font-size: 2rem;
+  font-weight: bold;
+}

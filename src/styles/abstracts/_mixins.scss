@@ -1,0 +1,36 @@
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+@mixin side-shadow($color) {
+  &::after {
+    @include center;
+    position: absolute;
+    content: '';
+    width: 60%;
+    height: 20%;
+    background: red;
+    top: 20%;
+    border-radius: 50%;
+    background-color: $color;
+  }
+}
+
+$breakpoints: (
+    sm: 37.5em, // 600px
+    md: 56.25em, // 900px
+    lg: 75em, // 1200px
+);
+
+@mixin break($size, $orientation:p) {
+  @if $orientation == p {
+    @media only screen and (max-width: map-get($breakpoints, $size)) and (orientation: portrait) { @content; }
+  }
+
+  @if $orientation == l {
+    @media only screen and (max-width: map-get($breakpoints, $size)) and (orientation: landscape) { @content; }
+  }
+}

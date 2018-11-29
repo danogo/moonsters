@@ -1,0 +1,326 @@
+/************************************
+  SPACESHIP
+*/
+@keyframes float {
+  0% { transform: translate3d(0, 0, 0); } 
+  50% { transform: translate3d(0, 2em, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+.spaceship {
+  width: 15%;
+  height: 15vw;
+  min-width: 90px;
+  min-height: 90px;
+  @include center;
+  transition: transform .3s ease-in-out;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+
+  @include break(lg) {
+    width: 20%;
+    height: 20vw;
+  }
+
+  @include break(md) {
+    width: 25%;
+    height: 25vw;
+  }
+
+  @include break(sm) {
+    width: 40%;
+    height: 40vw;
+  }
+
+  .spaceship__top {
+    background: linear-gradient(to right, #880E4F 0%, #F50057 100%);
+    border-radius: 20em 20em 2em 2em;
+    width: 60%;
+    height: 40%;
+    display: flex;
+    top: 10%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    .capsule {
+      width: 80%;
+      height: 75%;
+      background-color: white;
+      border-radius: 20em 20em 2em 2em;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      transition: transform .3s ease-in-out;
+
+      &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 20em 20em 2em 2em;
+        background: linear-gradient(to right bottom, rgba(#880E4F, .1) 0%, rgba( #F50057, .6) 100%);
+        transition: transform .3s ease-in-out;
+      }
+
+       .image {
+        width: 80%;
+    
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  
+  .spaceship__bottom {
+    width: 100%;
+    min-height: 25%;
+    border-radius: 20em;
+    background: linear-gradient(to right, #880E4F 0%, #F50057 100%);
+    box-shadow: 0 2em 2em 0 rgba(0, 0, 0, .3);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    transition: transform .3s ease-in-out;
+    padding: $s-size;
+    z-index: 2;
+
+     h3 {
+      text-align: center;
+      color: $white;
+      font-size: 1.4rem;
+      margin-bottom: $xs-size;
+
+      @include break(sm) {
+        font-size: 1rem;
+      }
+    }
+
+    .info {
+      display: none;
+      padding: $xs-size;
+
+      .description {
+        font-size: 1rem;
+        margin-bottom: $s-size;
+
+        @include break(sm) {
+          font-size: .8rem;
+        }
+      }
+
+
+      .stats {
+        display: flex;
+        color: $white;
+
+        .labels {
+          display: flex;
+          flex-flow: column nowrap;
+          flex: 0 1 20%;
+          p {
+            border: 1px solid transparent;
+            margin-bottom: .5rem;
+            font-size: .8rem;
+            @include break(sm) {
+              font-size: .6rem;
+            }
+
+            @include break(md, l) {
+              font-size: .5rem;
+            }
+          }
+        }
+
+        .charts {
+          display: flex;
+          flex-flow: column nowrap;
+          flex-grow: 1;
+          margin-left: $s-size;
+          p {
+            border: 1px solid white;
+            margin-bottom: .6rem;
+            line-height: .8rem;
+            border-radius: 1rem;
+
+            @include break(sm) {
+              line-height: .6rem;
+            }
+
+            @include break(md, l) {
+              line-height: .4rem;
+            }
+          }
+
+          .data {
+            display: inline-block;
+            height: 100%;
+            background-color: white;
+            color: $red;
+            padding-left: $xs-size;
+            border-radius: 1rem;
+          }
+        }
+      }
+
+    }   
+  }
+}
+
+// --open
+.spaceship--open {
+  transform: translate3d(-50%, -50%, 0) scale(2);
+  height: auto;
+
+  @include break(md, l) {
+    width: 40%;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  
+  .spaceship__top {
+    border-radius: 10% / 50%;
+    padding: 5% 0;
+
+    @include break(md, l) {
+      border-radius: 50% / 10%;
+      background: linear-gradient(to top, #880E4F 0%, #F50057 100%);
+    }
+
+    .capsule {
+      border-radius: 10% / 50%;
+      @include break(md, l) {
+        border-radius: 50% / 10%;
+      }
+      &::before {
+        opacity: 0
+      }
+
+      .image {
+        min-width: 60px;
+        min-height: 60px;
+      }
+    }
+  }
+ 
+  .spaceship__bottom {
+    border-radius: 10% / 50%;
+    justify-content: space-between;
+
+    @include break(md, l) {
+     padding: .6rem;
+     border-radius: 50% / 10%;
+     background: linear-gradient(to top, #880E4F 0%, #F50057 100%);
+     h3 {
+       font-size: 1rem;
+       margin-bottom: 0;
+     }
+    }
+    .info {
+      display: block;
+      .description {
+        @include break(md, l) {
+          font-size: .8rem;
+         }
+      }
+    }
+  }
+
+ 
+}
+
+//horizontal
+.card-next-enter {
+  transform: translate3d(calc(50vw - 50%), -50%, 0) scale(.1);
+  opacity: 0;
+}
+
+.card-next-enter-active {
+  opacity: 1;
+  transform: translate3d(-50%, -50%, 0) scale(1);
+  transition: all .6s ease;
+}
+
+.card-next-exit {
+  opacity: 1;
+}
+
+.card-next-exit-active {
+  opacity: 0;
+  transform: translate3d(-50vw, -50%, 0) scale(.1);
+  transition: all .6s ease;
+}
+
+.card-prev-enter {
+  transform: translate3d(calc(-50vw - 50%), -50%, 0) scale(.1);
+  opacity: 0;
+}
+
+.card-prev-enter-active {
+  opacity: 1;
+  transform: translate3d(-50%, -50%, 0) scale(1);
+  transition: all .6s ease;
+}
+
+.card-prev-exit {
+  opacity: 1;
+}
+
+.card-prev-exit-active {
+  opacity: 0;
+  transform: translate3d(calc(50vw - 100%), -50%, 0) scale(.1);
+  transition: all .6s ease;
+}
+
+@include break(sm) {
+  // vertical
+  .card-next-enter {
+    transform: translate3d(-50%, calc(50vh - 50%),  0) scale(.1);
+    opacity: 0;
+  }
+
+  .card-next-enter-active {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0) scale(1);
+    transition: all .6s ease;
+  }
+
+  .card-next-exit {
+    opacity: 1;
+  }
+
+  .card-next-exit-active {
+    opacity: 0;
+    transform: translate3d(-50%, -50vh,  0) scale(.1);
+    transition: all .6s ease;
+  }
+
+  .card-prev-enter {
+    transform: translate3d(-50%, calc(-50vh - 50%), 0) scale(.1);
+    opacity: 0;
+  }
+
+  .card-prev-enter-active {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0) scale(1);
+    transition: all .6s ease;
+  }
+
+  .card-prev-exit {
+    opacity: 1;
+  }
+
+  .card-prev-exit-active {
+    opacity: 0;
+    transform: translate3d(-50%, calc(50vh - 100%), 0) scale(.1);
+    transition: all .6s ease;
+  }
+}

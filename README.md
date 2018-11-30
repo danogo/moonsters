@@ -1,4 +1,5 @@
-# Moonsters. The best programmers in the galaxy. 
+# Moonsters. 
+Say hi to moonsters - the best programmers in the galaxy. 
 
 Simple carousel component presenting monster cards. Component is using codequest monsters-api to fetch monsters data. Built with react and sass.
 

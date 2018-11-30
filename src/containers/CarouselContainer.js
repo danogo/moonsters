@@ -21,7 +21,7 @@ export default class CarouselContainer extends Component {
 
   componentDidMount() {
     this.setState({isPending: true});
-    fetch('https://monsters-api-danogo.herokuapp.com/api/v1/monsters')
+    fetch('http://localhost/api/v1/monsters')
       .then(response => {
           return response.json();
        })

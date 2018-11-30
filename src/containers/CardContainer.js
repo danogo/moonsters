@@ -11,7 +11,7 @@ class CardContainer extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://monsters-api-danogo.herokuapp.com/api/v1/monster/${this.props.slug}`)
+    fetch(`http://localhost/api/v1/monster/${this.props.slug}`)
       .then(response => response.json())
       .then(data => {
         this.setState(() => ({
@@ -20,7 +20,6 @@ class CardContainer extends Component {
       })
       .catch(error => this.setState(() => ({ error, isPending: false })));
   }
-
 
   render() {
     return <Card {...this.state.card} {...this.props}/>;

@@ -72,7 +72,7 @@
       }
     }
 
-    @include break(sm) {
+    @include break(sm, p) {
       top: $s-size;
       left: 50%;
       transform: translate3d(-50%, 0, 0);
@@ -106,7 +106,7 @@
       }
     }
 
-    @include break(sm) {
+    @include break(sm, p) {
       bottom: $s-size;
       top: auto;
       right: 50%;

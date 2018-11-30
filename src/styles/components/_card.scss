@@ -10,8 +10,9 @@
 .spaceship {
   width: 15%;
   height: 15vw;
-  min-width: 90px;
-  min-height: 90px;
+  min-width: 45px;
+  min-height: 45px;
+  max-width: 250px;
   @include center;
   transition: transform .3s ease-in-out;
   display: flex;
@@ -30,8 +31,8 @@
   }
 
   @include break(sm) {
-    width: 40%;
-    height: 40vw;
+    width: 35%;
+    height: 35vw;
   }
 
   .spaceship__top {
@@ -83,17 +84,16 @@
     width: 100%;
     min-height: 25%;
     border-radius: 20em;
-    background: linear-gradient(to right, #880E4F 0%, #F50057 100%);
+    background: linear-gradient(to right, #880E4F 0%,#F50057 100%);
     box-shadow: 0 2em 2em 0 rgba(0, 0, 0, .3);
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     transition: transform .3s ease-in-out;
-    padding: $s-size;
     z-index: 2;
 
-     h3 {
+    h3 {
       text-align: center;
       color: $white;
       font-size: 1.4rem;
@@ -101,81 +101,23 @@
 
       @include break(sm) {
         font-size: 1rem;
+        margin-bottom: 0;
       }
     }
 
     .info {
       display: none;
-      padding: $xs-size;
+    }
 
-      .description {
-        font-size: 1rem;
-        margin-bottom: $s-size;
-
-        @include break(sm) {
-          font-size: .8rem;
-        }
-      }
-
-
-      .stats {
-        display: flex;
-        color: $white;
-
-        .labels {
-          display: flex;
-          flex-flow: column nowrap;
-          flex: 0 1 20%;
-          p {
-            border: 1px solid transparent;
-            margin-bottom: .5rem;
-            font-size: .8rem;
-            @include break(sm) {
-              font-size: .6rem;
-            }
-
-            @include break(md, l) {
-              font-size: .5rem;
-            }
-          }
-        }
-
-        .charts {
-          display: flex;
-          flex-flow: column nowrap;
-          flex-grow: 1;
-          margin-left: $s-size;
-          p {
-            border: 1px solid white;
-            margin-bottom: .6rem;
-            line-height: .8rem;
-            border-radius: 1rem;
-
-            @include break(sm) {
-              line-height: .6rem;
-            }
-
-            @include break(md, l) {
-              line-height: .4rem;
-            }
-          }
-
-          .data {
-            display: inline-block;
-            height: 100%;
-            background-color: white;
-            color: $red;
-            padding-left: $xs-size;
-            border-radius: 1rem;
-          }
-        }
-      }
-
-    }   
+    .spinner {
+      display: none;
+    }
+  
   }
 }
 
-// --open
+
+// spaceship--open, displaying card info
 .spaceship--open {
   transform: translate3d(-50%, -50%, 0) scale(2);
   height: auto;
@@ -187,6 +129,7 @@
   }
   
   .spaceship__top {
+    background: linear-gradient(to right, #880E4F 0%, #F50057 100%);
     border-radius: 10% / 50%;
     padding: 5% 0;
 
@@ -207,34 +150,121 @@
       .image {
         min-width: 60px;
         min-height: 60px;
+        @include break(sm) {
+          min-width: 30px;
+          min-height: 30px;
+        }
       }
     }
   }
  
   .spaceship__bottom {
+    background: linear-gradient(to right,#880E4F 0%, #F50057 100%);
     border-radius: 10% / 50%;
     justify-content: space-between;
+    padding: $m-size;
+    position: relative;
 
     @include break(md, l) {
-     padding: .6rem;
-     border-radius: 50% / 10%;
-     background: linear-gradient(to top, #880E4F 0%, #F50057 100%);
-     h3 {
-       font-size: 1rem;
-       margin-bottom: 0;
-     }
-    }
-    .info {
-      display: block;
-      .description {
-        @include break(md, l) {
-          font-size: .8rem;
-         }
+      padding: .6rem;
+      border-radius: 50% / 10%;
+      background: linear-gradient(to top, #880E4F 0%, #F50057 100%);
+      h3 {
+        font-size: 1rem;
+        margin-bottom: 0;
       }
     }
-  }
 
- 
+    @include break(sm, p) {
+      padding: .4rem 1rem;
+    }
+
+    .spinner {
+      position: static;
+      display: block;
+      animation: 2s linear infinite spinner-static;
+    }
+
+    .info {
+      display: block;
+      padding: $xs-size;
+
+      .description {
+        font-size: 1rem;
+        margin-bottom: $s-size;
+
+        @include break(sm) {
+          font-size: .8rem;
+        }
+
+        @include break(md, l) {
+          font-size: .8rem;
+        }
+      }
+
+      .stats {
+        display: flex;
+        flex-flow: row nowrap;
+
+        .labels {
+          display: flex;
+          flex-flow: column nowrap;
+          margin-right: $xs-size;
+          
+          .label {
+            border: 1px solid transparent;
+            font-size: .8rem;
+            height: .8rem;
+            color: $white;
+            &:not(:last-of-type) {
+              margin-bottom: .6rem;
+            }
+
+            @include break(sm) {
+              font-size: .6rem;
+              height: .6rem;
+            }
+    
+            @include break(md, l) {
+              font-size: .6rem;
+              height: .6rem;
+            }
+
+          }
+        }
+
+        .charts {
+          display: flex;
+          flex-flow: column nowrap;
+          flex-grow: 1;
+         
+          .chart {
+            display: flex;
+            border: 1px solid white;
+            height: .8rem;
+            border-radius: 1rem;
+            &:not(:last-of-type) {
+              margin-bottom: .6rem;
+            }
+
+            @include break(sm) {
+              height: .6rem;
+            }
+    
+            @include break(md, l) {
+              height: .6rem;
+            }
+
+            .data {
+              height: 100%;
+              background-color: white;
+              border-radius: 1rem;
+            }
+          }
+        }
+      }
+    }  
+  }
 }
 
 //horizontal
@@ -280,7 +310,7 @@
   transition: all .6s ease;
 }
 
-@include break(sm) {
+@include break(sm, p) {
   // vertical
   .card-next-enter {
     transform: translate3d(-50%, calc(50vh - 50%),  0) scale(.1);

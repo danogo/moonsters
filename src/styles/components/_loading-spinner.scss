@@ -12,6 +12,16 @@
   transform-origin: center;
   opacity: inherit;
   animation: 2s linear infinite spinner;
+
+  @include break(md, l) {
+    width: 30px;
+    height: 30px;
+  }
+
+  @include break(sm) {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 @keyframes spinner {
@@ -20,5 +30,14 @@
   }
   100% {
     transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+
+@keyframes spinner-static {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

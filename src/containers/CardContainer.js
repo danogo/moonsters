@@ -6,7 +6,8 @@ class CardContainer extends Component {
     super(props);
     this.state = {
       card: null,
-      error: ''
+      error: '',
+      isPending: true
     };
   }
 
@@ -15,7 +16,8 @@ class CardContainer extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState(() => ({
-          card: data.data
+          card: data.data,
+          isPending: false
         }))
       })
       .catch(error => this.setState(() => ({ error, isPending: false })));
@@ -23,7 +25,7 @@ class CardContainer extends Component {
 
 
   render() {
-    return <Card {...this.state.card} {...this.props}/>;
+    return <Card {...this.state.card} {...this.props} isPending={this.state.isPending}/>;
   }
 }
 

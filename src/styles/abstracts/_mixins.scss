@@ -25,7 +25,11 @@ $breakpoints: (
     lg: 75em, // 1200px
 );
 
-@mixin break($size, $orientation:p) {
+@mixin break($size, $orientation:'') {
+  @if $orientation == '' {
+    @media only screen and (max-width: map-get($breakpoints, $size)) { @content; }
+  }
+  
   @if $orientation == p {
     @media only screen and (max-width: map-get($breakpoints, $size)) and (orientation: portrait) { @content; }
   }

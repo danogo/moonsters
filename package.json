@@ -1,6 +1,5 @@
 {
-  "homepage": "https://danogo.github.io/moonsters",
-  "name": "monsters",
+  "name": "moonsters",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,8 +13,6 @@
     "react-transition-group": "^2.5.0"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -31,7 +28,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^2.0.1",
     "node-sass": "^4.10.0"
   }
 }

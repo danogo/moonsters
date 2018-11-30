@@ -1,5 +1,5 @@
 # Moonsters. 
-Say hi to moonsters - the best programmers in the galaxy. 
+Say hi to moonsters - the best programmers on the moon. 
 
 Simple carousel component presenting monster cards. Component is using codequest monsters-api to fetch monsters data. Built with react and sass.
 

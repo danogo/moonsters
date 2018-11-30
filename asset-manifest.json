@@ -1,15 +1,15 @@
 {
-  "main.css": "/moonsters/static/css/main.5e093451.chunk.css",
-  "main.js": "/moonsters/static/js/main.f9703373.chunk.js",
-  "main.js.map": "/moonsters/static/js/main.f9703373.chunk.js.map",
+  "main.css": "/moonsters/static/css/main.9ff61d72.chunk.css",
+  "main.js": "/moonsters/static/js/main.1c842a8d.chunk.js",
+  "main.js.map": "/moonsters/static/js/main.1c842a8d.chunk.js.map",
   "static/css/1.848b3fb4.chunk.css": "/moonsters/static/css/1.848b3fb4.chunk.css",
   "static/js/1.360dcafa.chunk.js": "/moonsters/static/js/1.360dcafa.chunk.js",
   "static/js/1.360dcafa.chunk.js.map": "/moonsters/static/js/1.360dcafa.chunk.js.map",
   "runtime~main.js": "/moonsters/static/js/runtime~main.83edb383.js",
   "runtime~main.js.map": "/moonsters/static/js/runtime~main.83edb383.js.map",
   "static/css/1.848b3fb4.chunk.css.map": "/moonsters/static/css/1.848b3fb4.chunk.css.map",
-  "static/css/main.5e093451.chunk.css.map": "/moonsters/static/css/main.5e093451.chunk.css.map",
+  "static/css/main.9ff61d72.chunk.css.map": "/moonsters/static/css/main.9ff61d72.chunk.css.map",
   "index.html": "/moonsters/index.html",
-  "precache-manifest.a25a50bc5af88a5ed001378ba55e69fd.js": "/moonsters/precache-manifest.a25a50bc5af88a5ed001378ba55e69fd.js",
+  "precache-manifest.ec3f72c8721bc381ee67df4c48af7d1a.js": "/moonsters/precache-manifest.ec3f72c8721bc381ee67df4c48af7d1a.js",
   "service-worker.js": "/moonsters/service-worker.js"
 }

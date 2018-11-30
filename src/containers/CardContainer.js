@@ -11,7 +11,7 @@ class CardContainer extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost/api/v1/monster/${this.props.slug}`)
+    fetch(`http://localhost:8080/api/v1/monster/${this.props.slug}`)
       .then(response => response.json())
       .then(data => {
         this.setState(() => ({

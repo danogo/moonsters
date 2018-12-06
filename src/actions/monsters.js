@@ -23,6 +23,6 @@ export const showPrevCard = () => (
 export const reqMonsters = () => dispatch => {
   dispatch({type: REQUEST_MONSTERS_PENDING});
   apiCall(url.monsters)
-    .then(data => dispatch({type: REQUEST_MONSTERS_SUCCESS, monsters: data}))
-    .catch(error => dispatch({type: REQUEST_MONSTERS_FAILED, errorMonsters: error}));
+    .then(data => dispatch({type: REQUEST_MONSTERS_SUCCESS, monsters: data.data}))
+    .catch(error => dispatch({type: REQUEST_MONSTERS_FAILED, error: error}));
 }

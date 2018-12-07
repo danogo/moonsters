@@ -4,8 +4,8 @@ import {
   REQUEST_MONSTERS_PENDING,
   REQUEST_MONSTERS_SUCCESS,
   REQUEST_MONSTERS_FAILED
-} from './constants';
-import { apiCall, url } from '../api/configApi';
+} from './actionTypes';
+import { apiCall, url } from '../api/config';
 
 // action creators
 export const showNextCard = () => (
@@ -25,4 +25,4 @@ export const reqMonsters = () => dispatch => {
   apiCall(url.monsters)
     .then(data => dispatch({type: REQUEST_MONSTERS_SUCCESS, monsters: data.data}))
     .catch(error => dispatch({type: REQUEST_MONSTERS_FAILED, error: error}));
-}
+};
